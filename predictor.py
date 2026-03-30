@@ -93,13 +93,10 @@ def predict(lat: float, lon: float, date: str) -> Dict[str, Union[float, int, No
                 }
     except ValueError as e:
         #日本以外のエリアが選択された場合
-        print(f"ValueError: {e}")
-
         #エラー内容をそのまま返す
         raise
     except Exception as e:
-        print(f"Error during prediction: {e}")
         
         #エラー内容に必要な情報を追加して返す
-        raise Exception(f"Error during prediction: muni_cd={muni_cd}, population_density={population_density}, elevation={elevation}")
+        raise Exception(f"Error during prediction: muni_cd={muni_cd}, population_density={population_density}, elevation={elevation}, error={str(e)}")
     
